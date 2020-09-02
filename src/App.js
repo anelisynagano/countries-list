@@ -27,10 +27,14 @@ class App extends Component {
   }
 
   render() {
+    const { selectedCountryInfo, data } = this.state;
     return (
       <div className="App" >
-        <Dropdown getCountryInfo={this.getCountryInfo} countries={this.state.data}/>
-        {this.state.selectedCountryInfo && <CountryInfo info={this.state.selectedCountryInfo} />}
+        <Dropdown getCountryInfo={this.getCountryInfo} countries={data}/>
+
+        {/* initial state value of selectedCountryInfo is empty object */}
+        {selectedCountryInfo && <CountryInfo info={selectedCountryInfo} />}
+      
       </div>
     );
   }
